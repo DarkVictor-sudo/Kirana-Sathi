@@ -1,5 +1,5 @@
 // किराना साथी - Service Worker for Offline First PWA
-const CACHE_NAME = 'kirana-saathi-v9';
+const CACHE_NAME = 'kirana-saathi-v10';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

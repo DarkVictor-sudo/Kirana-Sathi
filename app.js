@@ -34,24 +34,20 @@ const TRANSLATIONS = {
     actionAiTitle: 'दुकान AI',
     actionAiDesc: 'स्टॉक, ऑर्डर और बिक्री पर सवाल पूछें',
     aiHeading: 'दुकान AI सहायक',
-    aiConnectionHeading: 'AI सर्वर',
-    aiPrivacyNote: 'आपके स्टॉक का डेटा DeepSeek को तभी भेजा जाएगा जब आप AI से पूछेंगे। API key इस ऐप में नहीं रखी जाती।',
-    aiEndpointLabel: 'AI सर्वर URL',
-    aiAccessTokenLabel: 'सर्वर एक्सेस टोकन',
-    aiAccessTokenPlaceholder: 'सर्वर पर सेट किया हुआ token',
-    aiEndpointHint: 'लोकल टेस्ट: http://127.0.0.1:8787 | फोन पर HTTPS होस्टेड सर्वर URL डालें',
-    aiSaveEndpoint: 'सेव',
-    aiStatusNoUrl: 'सर्वर URL सेव करें',
-    aiStatusChecking: 'सर्वर जांच रहे हैं...',
-    aiStatusReady: 'AI सर्वर तैयार है',
-    aiStatusNoKey: 'सर्वर मिला, लेकिन API key या access token की सेटिंग अधूरी है',
-    aiStatusFailed: 'सर्वर से संपर्क नहीं हो सका',
-    aiStatusOffline: 'AI के लिए इंटरनेट कनेक्शन चाहिए',
-    aiServerNeedsSetup: 'AI सर्वर मिला, लेकिन उस पर DeepSeek API key सेट नहीं है।',
+    aiWorking: 'दुकान का डेटा देख रहा हूं...',
+    aiConfirmSale: 'क्या {name} के {quantity} {unit} की बिक्री दर्ज करके स्टॉक घटाऊं?',
+    aiConfirmRestock: 'क्या {name} के स्टॉक में {quantity} {unit} जोड़ दूं?',
+    aiSaleDone: '{name} की {quantity} {unit} बिक्री दर्ज हुई। बचा स्टॉक: {remaining} {unit}।',
+    aiRestockDone: '{name} में {quantity} {unit} जोड़ा। नया स्टॉक: {remaining} {unit}।',
+    aiCommandCancelled: 'ठीक है, कोई बदलाव नहीं किया।',
+    aiNeedQuantity: 'कितनी मात्रा? सामान का नाम और मात्रा बोलें, जैसे: आटा 2 किलो बेचो।',
+    aiCommandNotFound: 'यह सामान स्टॉक में नहीं मिला। पहले इसे माल जोड़ें स्क्रीन से दर्ज करें।',
+    aiWorkingOffline: 'मैं फोन के सेव किए स्टॉक और बिक्री डेटा पर सीधे काम करता हूं। supplier के live भाव अभी जुड़े नहीं हैं।',
     aiReorder: '📦 रीऑर्डर सलाह',
     aiForecast: '📈 मांग का अनुमान',
     aiQuestionLabel: 'दुकान के बारे में पूछें',
-    aiQuestionPlaceholder: 'उदाहरण: अगले हफ्ते किन चीजों का स्टॉक बढ़ाऊं?',
+      aiQuestionPlaceholder: 'अपना सवाल लिखें या माइक दबाकर बोलें',
+      aiCommandHint: 'उदाहरण: कितना स्टॉक है? कौन सा माल कम है? आज कितनी बिक्री हुई? आटा 2 किलो बेचो।',
     aiSend: '✦ AI से पूछें',
     aiMicLabel: 'बोलकर सवाल पूछें',
     aiMicListening: 'सुन रहा हूं... अब अपना सवाल बोलें।',
@@ -181,24 +177,20 @@ const TRANSLATIONS = {
     actionAiTitle: 'Shop AI',
     actionAiDesc: 'Ask about stock, orders, and sales',
     aiHeading: 'Kirana Saathi AI',
-    aiConnectionHeading: 'AI server',
-    aiPrivacyNote: 'Your stock data is sent to DeepSeek only when you ask the assistant. The API key is never stored in this app.',
-    aiEndpointLabel: 'AI server URL',
-    aiAccessTokenLabel: 'Server access token',
-    aiAccessTokenPlaceholder: 'Token configured on your server',
-    aiEndpointHint: 'Local test: http://127.0.0.1:8787 | On your phone, enter your hosted HTTPS server URL',
-    aiSaveEndpoint: 'Save',
-    aiStatusNoUrl: 'Save your server URL',
-    aiStatusChecking: 'Checking server...',
-    aiStatusReady: 'AI server is ready',
-    aiStatusNoKey: 'Server found, but its API key or access token is not configured',
-    aiStatusFailed: 'Could not reach the server',
-    aiStatusOffline: 'Internet is required for AI',
-    aiServerNeedsSetup: 'AI server is reachable, but its DeepSeek API key is not configured.',
+    aiWorking: 'Checking your shop data...',
+    aiConfirmSale: 'Record a sale of {quantity} {unit} of {name} and reduce its stock?',
+    aiConfirmRestock: 'Add {quantity} {unit} to {name} stock?',
+    aiSaleDone: 'Sold {quantity} {unit} of {name}. Remaining stock: {remaining} {unit}.',
+    aiRestockDone: 'Added {quantity} {unit} to {name}. New stock: {remaining} {unit}.',
+    aiCommandCancelled: 'Okay, nothing was changed.',
+    aiNeedQuantity: 'How much? Say the product and amount, for example: sell 2 kg atta.',
+    aiCommandNotFound: 'That product is not in stock. Add it from the Add Stock screen first.',
+    aiWorkingOffline: 'I work directly with stock and sales saved on this phone. Live supplier prices are not connected.',
     aiReorder: '📦 Reorder advice',
     aiForecast: '📈 Demand forecast',
     aiQuestionLabel: 'Ask about your shop',
-    aiQuestionPlaceholder: 'Example: What should I restock next week?',
+    aiQuestionPlaceholder: 'Type a question or tap the mic to speak',
+    aiCommandHint: 'Examples: How much atta is left? What is low? How many sales today? Sell 2 kg atta.',
     aiSend: '✦ Ask AI',
     aiMicLabel: 'Ask by voice',
     aiMicListening: 'Listening... speak your question now.',
@@ -651,17 +643,11 @@ function applyLocalization() {
   setPlaceholder('input-stock-search', t('searchPlaceholder'));
 
   setText('txt-ai-heading', t('aiHeading'));
-  setText('txt-ai-connection-heading', t('aiConnectionHeading'));
-  setText('txt-ai-privacy-note', t('aiPrivacyNote'));
-  setText('lbl-ai-endpoint', t('aiEndpointLabel'));
-  setText('lbl-ai-access-token', t('aiAccessTokenLabel'));
-  setPlaceholder('input-ai-access-token', t('aiAccessTokenPlaceholder'));
-  setText('txt-ai-endpoint-hint', t('aiEndpointHint'));
-  setText('btn-save-ai-endpoint', t('aiSaveEndpoint'));
   setText('btn-ai-reorder', t('aiReorder'));
   setText('btn-ai-forecast', t('aiForecast'));
   setText('lbl-ai-question', t('aiQuestionLabel'));
   setPlaceholder('input-ai-question', t('aiQuestionPlaceholder'));
+  setText('txt-ai-command-hint', t('aiCommandHint'));
   setText('btn-ai-send', t('aiSend'));
   document.getElementById('btn-ai-mic')?.setAttribute('aria-label', t('aiMicLabel'));
 
@@ -673,61 +659,6 @@ function applyLocalization() {
 
   // Unit Options in dropdown
   updateUnitDropdown();
-}
-
-const AI_ENDPOINT_STORAGE_KEY = 'kirana_ai_endpoint';
-const AI_TOKEN_STORAGE_KEY = 'kirana_ai_access_token';
-
-function getAIApiUrl() {
-  return (localStorage.getItem(AI_ENDPOINT_STORAGE_KEY) || '').trim().replace(/\/+$/, '');
-}
-
-async function checkAIEndpoint() {
-  const endpoint = getAIApiUrl();
-  const status = document.getElementById('ai-server-status');
-  if (!endpoint) {
-    status.textContent = t('aiStatusNoUrl');
-    return;
-  }
-
-  status.textContent = t('aiStatusChecking');
-  try {
-    const response = await fetch(`${endpoint}/health`, { cache: 'no-store' });
-    const result = await response.json();
-    status.textContent = result.configured ? t('aiStatusReady') : t('aiStatusNoKey');
-  } catch (error) {
-    status.textContent = navigator.onLine ? t('aiStatusFailed') : t('aiStatusOffline');
-  }
-}
-
-function saveAISettings() {
-  const input = document.getElementById('input-ai-endpoint');
-  const tokenInput = document.getElementById('input-ai-access-token');
-  let parsedUrl;
-  try {
-    parsedUrl = new URL(input.value.trim());
-  } catch {
-    input.setCustomValidity(currentLang === 'hi' ? 'मान्य AI सर्वर URL लिखें।' : 'Enter a valid AI server URL.');
-    input.reportValidity();
-    return;
-  }
-  input.setCustomValidity('');
-  if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
-    input.setCustomValidity(currentLang === 'hi' ? 'URL http या https से शुरू होना चाहिए।' : 'URL must use http or https.');
-    input.reportValidity();
-    return;
-  }
-  const isLocalHost = ['localhost', '127.0.0.1'].includes(parsedUrl.hostname);
-  if (window.Capacitor?.isNativePlatform?.() && parsedUrl.protocol !== 'https:' && !isLocalHost) {
-    input.setCustomValidity(currentLang === 'hi' ? 'फोन पर AI सर्वर के लिए HTTPS URL जरूरी है।' : 'Android requires an HTTPS URL for remote AI servers.');
-    input.reportValidity();
-    return;
-  }
-
-  localStorage.setItem(AI_ENDPOINT_STORAGE_KEY, parsedUrl.origin);
-  localStorage.setItem(AI_TOKEN_STORAGE_KEY, tokenInput.value.trim());
-  showToast(currentLang === 'hi' ? 'AI सर्वर सेटिंग सेव हो गई।' : 'AI server settings saved.', 'success');
-  checkAIEndpoint();
 }
 
 async function collectShopAIContext() {
@@ -791,11 +722,59 @@ async function answerShopQuestionLocally(questionText) {
   const products = await DBService.getAllProducts();
   const sales = await DBService.getAllSales();
   const product = matchQuestionProduct(question, products);
+  const amountMatch = question.match(/(\d+(?:[.,]\d+)?)/);
+  const requestedQuantity = amountMatch ? cleanDecimal(amountMatch[1].replace(',', '.')) : 0;
+  const asksSellCommand = aiQuestionHas(question, ['बेचो', 'बेच दो', 'बेच दें', 'becho', 'bech do', 'bech de', 'bikri karo', 'बिक्री करो', 'sale kar', 'sell ', 'sell it', 'निकाल दो']);
+  const asksRestockCommand = aiQuestionHas(question, ['स्टॉक जोड़', 'माल जोड़', 'जोड़ दो', 'बढ़ा दो', 'jod do', 'jod de', 'stock jod', 'maal jod', 'add stock', 'restock', 'add ']);
   const asksSupplier = aiQuestionHas(question, ['कहां से', 'kahase', 'kaha se', 'supplier', 'सप्लायर', 'सबसे सस्ता', 'sasta', 'cheap', 'best price', 'कहां खरीद', 'where to buy']);
   const asksLowStock = aiQuestionHas(question, ['कम स्टॉक', 'kam stock', 'low stock', 'खत्म', 'khatm', 'khatam', 'khatam ho raha', 'khatm ho raha', 'कम हो रहा', 'out of stock', 'reorder', 'रीऑर्डर', 'कौन सा खत्म', 'kaun sa khatam', 'kaun sa stock khatam']);
   const asksSales = aiQuestionHas(question, ['बिक्री', 'sales', 'sale', 'बेचा', 'bika', 'kitne hue', 'कितने हुए', 'revenue', 'कमाई']);
   const asksStock = aiQuestionHas(question, ['स्टॉक', 'stock', 'माल कितना', 'kitna hai', 'कितना है', 'उपलब्ध', 'available', 'inventory']);
   const asksPurchasePrice = aiQuestionHas(question, ['खरीद भाव', 'purchase price', 'खरीदा', 'buying price', 'दर्ज भाव']);
+  const asksForecast = aiQuestionHas(question, ['अनुमान', 'forecast', 'मांग', 'demand', 'अगले हफ्ते', 'next week']);
+  const asksReorderAdvice = aiQuestionHas(question, ['रीऑर्डर सलाह', 'reorder advice', 'क्या मंगाऊं', 'kya mangau', 'क्या खरीदूं']);
+
+  if (asksSellCommand || asksRestockCommand) {
+    if (!product) return t('aiCommandNotFound');
+    if (!Number.isFinite(requestedQuantity) || requestedQuantity <= 0) return t('aiNeedQuantity');
+    if (asksSellCommand) {
+      if (requestedQuantity > cleanDecimal(product.quantity)) {
+        return t('saleErrorExceed', { avail: formatQty(product.quantity), unit: product.unit });
+      }
+      const approved = confirm(t('aiConfirmSale', {
+        name: product.name,
+        quantity: formatQty(requestedQuantity),
+        unit: product.unit
+      }));
+      if (!approved) return t('aiCommandCancelled');
+
+      const soldProduct = await DBService.recordSale(product.id, requestedQuantity, new Date().toISOString());
+      await refreshAllViews();
+      return t('aiSaleDone', {
+        name: soldProduct.name,
+        quantity: formatQty(requestedQuantity),
+        unit: soldProduct.unit,
+        remaining: formatQty(soldProduct.quantity)
+      });
+    }
+
+    const approved = confirm(t('aiConfirmRestock', {
+      name: product.name,
+      quantity: formatQty(requestedQuantity),
+      unit: product.unit
+    }));
+    if (!approved) return t('aiCommandCancelled');
+    product.quantity = cleanDecimal(cleanDecimal(product.quantity) + requestedQuantity);
+    product.updatedAt = new Date().toISOString();
+    await DBService.updateProduct(product);
+    await refreshAllViews();
+    return t('aiRestockDone', {
+      name: product.name,
+      quantity: formatQty(requestedQuantity),
+      unit: product.unit,
+      remaining: formatQty(product.quantity)
+    });
+  }
 
   if (asksSupplier) {
     if (product && product.purchasePrice !== null && product.purchasePrice !== undefined) {
@@ -818,6 +797,31 @@ async function answerShopQuestionLocally(questionText) {
       return `• ${item.name}: ${condition}; ${currentLang === 'hi' ? 'मंगाने का सुझाव' : 'suggested reorder'} ${formatQty(calculateSuggestedReorder(item))} ${item.unit}`;
     });
     return `${t('aiLowStockAnswer', { count: lowProducts.length })}\n${lines.join('\n')}`;
+  }
+
+  if (asksReorderAdvice) {
+    const lowProducts = products.filter(isLowStock).sort((a, b) => a.quantity - b.quantity);
+    if (!lowProducts.length) return t('aiNoLowStock');
+    return `${t('aiLowStockAnswer', { count: lowProducts.length })}\n${lowProducts.map((item) => {
+      const recentQuantity = sales
+        .filter((sale) => sale.productId === item.id && Date.now() - new Date(sale.soldAt).getTime() <= 30 * 24 * 60 * 60 * 1000)
+        .reduce((sum, sale) => sum + Number(sale.quantitySold || 0), 0);
+      const dailyAverage = recentQuantity / 30;
+      const demandSuggestion = Math.max(calculateSuggestedReorder(item), cleanDecimal(dailyAverage * 7));
+      return `• ${item.name}: ${formatQty(item.quantity)} ${item.unit} ${currentLang === 'hi' ? 'बाकी; अगले 7 दिन का दर्ज औसत' : 'left; recorded 7-day demand'} ${formatQty(cleanDecimal(dailyAverage * 7))} ${item.unit}; ${currentLang === 'hi' ? 'मंगाने का सुझाव' : 'suggested order'} ${formatQty(demandSuggestion)} ${item.unit}`;
+    }).join('\n')}`;
+  }
+
+  if (asksForecast) {
+    const recentWindowStart = Date.now() - 30 * 24 * 60 * 60 * 1000;
+    const soldRecently = sales.filter((sale) => new Date(sale.soldAt).getTime() >= recentWindowStart);
+    if (!soldRecently.length) return t('aiNoSales');
+    return `${currentLang === 'hi' ? 'पिछले 30 दिनों की बिक्री के आधार पर अगले 7 दिनों का साधारण अनुमान:' : 'Simple next-7-day estimate from the last 30 days of sales:'}\n${products.map((item) => {
+      const quantity = soldRecently
+        .filter((sale) => sale.productId === item.id)
+        .reduce((sum, sale) => sum + Number(sale.quantitySold || 0), 0);
+      return `• ${item.name}: ${formatQty(cleanDecimal(quantity / 30 * 7))} ${item.unit}`;
+    }).join('\n')}\n${currentLang === 'hi' ? 'यह दर्ज बिक्री का औसत है, पक्का market forecast नहीं।' : 'This is a recorded-sales average, not a guaranteed market forecast.'}`;
   }
 
   if (asksSales) {
@@ -867,19 +871,18 @@ async function answerShopQuestionLocally(questionText) {
     return `${t('aiAllStock', { count: products.length })}\n${lines.join('\n')}`;
   }
 
-  if (!getAIApiUrl()) return t('aiQuestionNotUnderstood');
-  return null;
+  return t('aiQuestionNotUnderstood');
 }
 
-async function askShopAI(question, options = {}) {
+async function askShopAI(question) {
   const answer = document.getElementById('ai-answer');
   const submitButton = document.getElementById('btn-ai-send');
   submitButton.disabled = true;
-  answer.textContent = t('aiStatusChecking');
+  answer.textContent = t('aiWorking');
   answer.classList.remove('hidden', 'ai-answer-error');
 
   try {
-    const localAnswer = options.forceRemote ? null : await answerShopQuestionLocally(question);
+    const localAnswer = await answerShopQuestionLocally(question);
     if (localAnswer) {
       answer.textContent = localAnswer;
       submitButton.disabled = false;
@@ -888,55 +891,8 @@ async function askShopAI(question, options = {}) {
   } catch (error) {
     console.error('Local shop answer failed:', error);
   }
-
-  const endpoint = getAIApiUrl();
-  const accessToken = localStorage.getItem(AI_TOKEN_STORAGE_KEY) || '';
-  if (!endpoint) {
-    answer.textContent = t('aiQuestionNotUnderstood');
-    answer.classList.add('ai-answer-error');
-    submitButton.disabled = false;
-    return;
-  }
-  if (!navigator.onLine) {
-    answer.textContent = t('aiStatusOffline');
-    answer.classList.add('ai-answer-error');
-    submitButton.disabled = false;
-    return;
-  }
-
-  try {
-    const shopData = await collectShopAIContext();
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 35_000);
-    let response;
-    try {
-      response = await fetch(`${endpoint}/api/assistant`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${accessToken}`
-        },
-        body: JSON.stringify({ question, language: currentLang, ...shopData }),
-        signal: controller.signal
-      });
-    } finally {
-      clearTimeout(timeout);
-    }
-
-    const result = await response.json();
-    if (!response.ok) {
-      if (response.status === 503 && result.error?.includes('DEEPSEEK_API_KEY')) {
-        throw new Error(t('aiServerNeedsSetup'));
-      }
-      throw new Error(result.error || t('aiRequestFailed'));
-    }
-    answer.textContent = result.answer;
-  } catch (error) {
-    answer.textContent = error.name === 'AbortError' ? t('aiRequestFailed') : (error.message || t('aiRequestFailed'));
-    answer.classList.add('ai-answer-error');
-  } finally {
-    submitButton.disabled = false;
-  }
+  answer.textContent = t('aiQuestionNotUnderstood');
+  submitButton.disabled = false;
 }
 
 function handleAIQuestionSubmit(event) {
@@ -1096,8 +1052,6 @@ function navigateTo(viewId) {
     renderStockList();
   } else if (viewId === 'view-home') {
     refreshHomeMetrics();
-  } else if (viewId === 'view-ai') {
-    checkAIEndpoint();
   }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -2001,9 +1955,6 @@ function setupEventListeners() {
   document.getElementById('btn-action-stock')?.addEventListener('click', () => navigateTo('view-stock'));
   document.getElementById('btn-action-ai')?.addEventListener('click', () => navigateTo('view-ai'));
 
-  document.getElementById('input-ai-endpoint').value = localStorage.getItem(AI_ENDPOINT_STORAGE_KEY) || '';
-  document.getElementById('input-ai-access-token').value = localStorage.getItem(AI_TOKEN_STORAGE_KEY) || '';
-  document.getElementById('btn-save-ai-endpoint')?.addEventListener('click', saveAISettings);
   document.getElementById('form-ai-question')?.addEventListener('submit', handleAIQuestionSubmit);
   document.getElementById('btn-ai-mic')?.addEventListener('click', startAIListening);
   document.querySelectorAll('.ai-task-button').forEach((button) => {
@@ -2011,7 +1962,7 @@ function setupEventListeners() {
       const promptKey = button.dataset.aiTask === 'reorder' ? 'aiReorderPrompt' : 'aiForecastPrompt';
       const prompt = t(promptKey);
       document.getElementById('input-ai-question').value = prompt;
-      askShopAI(prompt, { forceRemote: true });
+      askShopAI(prompt);
     });
   });
 

@@ -342,20 +342,6 @@
           <h2 id="txt-ai-heading">दुकान AI सहायक</h2>
         </div>
 
-        <section class="ai-connection" aria-labelledby="txt-ai-connection-heading">
-          <h3 id="txt-ai-connection-heading">AI सर्वर</h3>
-          <p id="txt-ai-privacy-note">आपके स्टॉक का डेटा DeepSeek को तभी भेजा जाएगा जब आप AI से पूछेंगे। API key इस ऐप में नहीं रखी जाती।</p>
-          <label for="input-ai-endpoint" id="lbl-ai-endpoint">AI सर्वर URL</label>
-          <div class="ai-endpoint-row">
-            <input id="input-ai-endpoint" class="form-control" type="url" inputmode="url" placeholder="https://your-server.example.com" autocomplete="url">
-            <button id="btn-save-ai-endpoint" class="btn-secondary" type="button">सेव</button>
-          </div>
-          <label for="input-ai-access-token" id="lbl-ai-access-token">सर्वर एक्सेस टोकन</label>
-          <input id="input-ai-access-token" class="form-control" type="password" autocomplete="off" placeholder="सर्वर पर सेट किया हुआ token">
-          <small id="txt-ai-endpoint-hint" class="hint-text">लोकल टेस्ट: http://127.0.0.1:8787 | फोन पर HTTPS होस्टेड सर्वर URL डालें</small>
-          <p id="ai-server-status" class="ai-server-status" role="status">सर्वर URL सेव करें</p>
-        </section>
-
         <div class="ai-quick-actions" aria-label="AI कार्य">
           <button class="btn-secondary ai-task-button" type="button" data-ai-task="reorder" id="btn-ai-reorder">📦 रीऑर्डर सलाह</button>
           <button class="btn-secondary ai-task-button" type="button" data-ai-task="forecast" id="btn-ai-forecast">📈 मांग का अनुमान</button>
@@ -367,6 +353,7 @@
             <textarea id="input-ai-question" class="form-control ai-question-input" rows="3" maxlength="1000" placeholder="उदाहरण: अगले हफ्ते किन चीजों का स्टॉक बढ़ाऊं?"></textarea>
             <button id="btn-ai-mic" class="ai-mic-button" type="button" aria-label="बोलकर सवाल पूछें" aria-pressed="false" title="बोलकर सवाल पूछें">🎙️</button>
           </div>
+          <small id="txt-ai-command-hint" class="hint-text">उदाहरण: कितना स्टॉक है? कौन सा माल कम है? आज कितनी बिक्री हुई? आटा 2 किलो बेचो।</small>
           <p id="ai-mic-status" class="ai-server-status" role="status" aria-live="polite"></p>
           <button id="btn-ai-send" class="btn-primary btn-block btn-lg" type="submit">✦ AI से पूछें</button>
         </form>
