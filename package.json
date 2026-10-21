@@ -1,0 +1,26 @@
+{
+  "name": "kirana-saathi",
+  "version": "1.0.0",
+  "description": "Offline-first inventory and quick-sale app for kirana stores",
+  "main": "app.js",
+  "scripts": {
+    "ai:server": "node server.js",
+    "build:web": "node scripts/build-voice.js && node scripts/copy-web-assets.js",
+    "android:sync": "node scripts/clean-android-assets.js && npm run build:web && cap sync android",
+    "android:apk": "npm run android:sync && node scripts/build-android.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@capacitor-community/speech-recognition": "^7.0.1",
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/share": "^8.0.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
+    "esbuild": "^0.28.2"
+  }
+}

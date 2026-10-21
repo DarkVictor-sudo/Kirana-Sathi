@@ -1,0 +1,8 @@
+{
+  "appId": "in.kiranasaathi.app",
+  "appName": "Kirana Saathi",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

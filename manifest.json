@@ -1,0 +1,19 @@
+{
+  "name": "किराना साथी - Kirana Saathi",
+  "short_name": "किराना साथी",
+  "description": "किराना दुकानों के लिए सरल ऑफलाइन स्टॉक और बिक्री ऐप",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#064e3b",
+  "theme_color": "#0f766e",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

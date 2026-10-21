@@ -1,0 +1,22 @@
+# Dependencies & System
+node_modules/
+www/
+voice.js
+android/.gradle/
+android/local.properties
+android/**/build/
+android/captures/
+.DS_Store
+Thumbs.db
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs & Environment
+*.log
+.env
+.env.local
+.env.production

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+    <linearGradient id="bag" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Rounded Rect -->
+  <rect width="512" height="512" rx="110" fill="url(#bg)"/>
+  
+  <!-- Outer Store / Bag Outline -->
+  <g transform="translate(0, 10)">
+    <!-- Bag handles -->
+    <path d="M190 190 C190 110, 322 110, 322 190" fill="none" stroke="#fef3c7" stroke-width="26" stroke-linecap="round"/>
+    
+    <!-- Grocery Bag Body -->
+    <path d="M140 185 L372 185 L352 420 C350 435, 338 445, 322 445 L190 445 C174 445, 162 435, 160 420 Z" fill="url(#bag)" />
+    
+    <!-- Bag Fold Highlight -->
+    <path d="M150 185 L256 220 L362 185" fill="none" stroke="#b45309" stroke-width="6" opacity="0.4"/>
+    
+    <!-- Rupee / Kirana Symbol inside Bag -->
+    <circle cx="256" cy="320" r="62" fill="#ffffff" opacity="0.95"/>
+    <text x="256" y="348" font-family="system-ui, -apple-system, sans-serif" font-size="80" font-weight="900" fill="#064e3b" text-anchor="middle">₹</text>
+
+    <!-- Grain / Leaf symbol for Kirana organic feel -->
+    <path d="M375 145 C410 130, 420 90, 420 90 C420 90, 380 95, 365 130 C360 140, 368 150, 375 145 Z" fill="#34d399"/>
+    <path d="M380 140 L405 105" stroke="#064e3b" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

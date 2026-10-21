@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f766e">
+  <meta name="description" content="किराना साथी - छोटे किराना दुकानदारों के लिए 100% ऑफलाइन स्टॉक एवं त्वरित बिक्री प्रबंधक">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>किराना साथी | Kirana Sathi</title>
+  
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/svg+xml" href="./icon.svg">
+  <link rel="apple-touch-icon" href="./icon.svg">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- Top App Bar -->
+  <header class="app-header">
+    <div class="header-brand">
+      <img src="./icon.svg" alt="किराना साथी लोगो" class="app-logo">
+      <div class="brand-text">
+        <h1 class="brand-title" id="txt-app-title">किराना साथी</h1>
+        <span class="brand-sub" id="txt-app-subtitle">दुकान का डिजिटल मुनीम</span>
+      </div>
+    </div>
+    <div class="header-controls">
+      <span id="network-badge" class="badge-status online" title="इंटरनेट स्थिति">
+        <span class="status-dot"></span>
+        <span id="txt-network-status">ऑनलाइन</span>
+      </span>
+      <button id="btn-lang-toggle" class="btn-lang" aria-label="भाषा बदलें / Change Language">
+        🌐 English
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-container">
+
+    <!-- 1. HOME SCREEN VIEW -->
+    <section id="view-home" class="view active">
+      <!-- Low Stock Warning Banner -->
+      <div id="home-alert-banner" class="alert-banner hidden">
+        <div class="alert-icon">⚠️</div>
+        <div class="alert-content">
+          <strong id="home-alert-title">कम स्टॉक चेतावनी!</strong>
+          <p id="home-alert-desc"><span id="home-low-count">0</span> सामान न्यूनतम सीमा पर या उससे नीचे हैं।</p>
+        </div>
+        <button id="btn-goto-reorder" class="btn-banner-action" id-text="btn-view-reorder">रीऑर्डर देखें</button>
+      </div>
+
+      <!-- Hero Welcome -->
+      <div class="welcome-card">
+        <div class="welcome-info">
+          <h2 id="txt-welcome-greeting">नमस्ते दुकानदार भाई! 🙏</h2>
+          <p id="txt-welcome-sub">आज की बिक्री और स्टॉक प्रबंधित करें</p>
+        </div>
+        <div class="today-chip">
+          <span id="today-date">आज</span>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Summary -->
+      <div class="metrics-grid">
+        <div class="metric-card" id="card-stat-total">
+          <div class="metric-icon">📦</div>
+          <div class="metric-info">
+            <span class="metric-val" id="stat-total-products">0</span>
+            <span class="metric-lbl" id="lbl-total-products">कुल सामान</span>
+          </div>
+        </div>
+
+        <div class="metric-card alert" id="card-stat-low">
+          <div class="metric-icon">⚠️</div>
+          <div class="metric-info">
+            <span class="metric-val" id="stat-low-stock">0</span>
+            <span class="metric-lbl" id="lbl-low-stock">कम स्टॉक</span>
+          </div>
+        </div>
+
+        <div class="metric-card warning" id="card-stat-dead">
+          <div class="metric-icon">⏳</div>
+          <div class="metric-info">
+            <span class="metric-val" id="stat-dead-stock">0</span>
+            <span class="metric-lbl" id="lbl-dead-stock">रुका हुआ माल (14 दिन)</span>
+          </div>
+        </div>
+
+        <div class="metric-card success" id="card-stat-sales">
+          <div class="metric-icon">💰</div>
+          <div class="metric-info">
+            <span class="metric-val" id="stat-today-sales">0</span>
+            <span class="metric-lbl" id="lbl-today-sales">आज की बिक्री</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Primary Thumb-Friendly Action Buttons -->
+      <div class="primary-actions">
+        <button id="btn-action-add" class="action-card btn-action-add" type="button">
+          <div class="action-icon-circle">➕</div>
+          <div class="action-text">
+            <span class="action-title" id="txt-action-add-title">माल जोड़ें</span>
+            <span class="action-desc" id="txt-action-add-desc">दुकान में नया सामान या स्टॉक दर्ज करें</span>
+          </div>
+          <span class="action-arrow">➔</span>
+        </button>
+
+        <button id="btn-action-sale" class="action-card btn-action-sale" type="button">
+          <div class="action-icon-circle">⚡</div>
+          <div class="action-text">
+            <span class="action-title" id="txt-action-sale-title">बिक्री करें</span>
+            <span class="action-desc" id="txt-action-sale-desc">एक टैप में ग्राहक की बिक्री और स्टॉक घटाएं</span>
+          </div>
+          <span class="action-arrow">➔</span>
+        </button>
+
+        <button id="btn-action-stock" class="action-card btn-action-stock" type="button">
+          <div class="action-icon-circle">📋</div>
+          <div class="action-text">
+            <span class="action-title" id="txt-action-stock-title">स्टॉक देखें</span>
+            <span class="action-desc" id="txt-action-stock-desc">रीऑर्डर सूची और रुका हुआ माल जांचें</span>
+          </div>
+          <span class="action-arrow">➔</span>
+        </button>
+
+        <button id="btn-action-ai" class="action-card btn-action-ai" type="button">
+          <div class="action-icon-circle">✦</div>
+          <div class="action-text">
+            <span class="action-title" id="txt-action-ai-title">दुकान AI</span>
+            <span class="action-desc" id="txt-action-ai-desc">स्टॉक, ऑर्डर और बिक्री पर सवाल पूछें</span>
+          </div>
+          <span class="action-arrow">➔</span>
+        </button>
+      </div>
+
+      <!-- Offline & Demo Helper Footer -->
+      <div class="demo-box">
+        <div class="demo-box-header">
+          <span class="demo-badge" id="txt-offline-badge">ऑफलाइन के लिए तैयार</span>
+          <span class="demo-tip" id="txt-offline-tip">ऐप एक बार लोड होने के बाद ऑफलाइन इस्तेमाल करें</span>
+        </div>
+        <div class="demo-buttons">
+          <button id="btn-load-demo" class="btn-secondary btn-sm" type="button">
+            📦 <span id="txt-btn-demo">डेमो सामान लोड करें</span>
+          </button>
+          <button id="btn-reset-db" class="btn-danger-outline btn-sm" type="button">
+            🗑️ <span id="txt-btn-reset">डेटा रीसेट</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ADD STOCK VIEW -->
+    <section id="view-add-stock" class="view">
+      <div class="card-form">
+        <div class="form-header">
+          <button class="btn-back btn-nav-home" aria-label="वापस जाएं">←</button>
+          <h2 id="txt-form-add-heading">नया माल जोड़ें (Add Stock)</h2>
+        </div>
+
+        <form id="form-add-product" autocomplete="off">
+          <!-- Product Name -->
+          <div class="form-group">
+            <label for="input-product-name" id="lbl-form-name">सामान का नाम *</label>
+            <input 
+              type="text" 
+              id="input-product-name" 
+              class="form-control" 
+              placeholder="जैसे: बासमती चावल, फॉर्च्यून तेल..." 
+              required
+              maxlength="80"
+            >
+            <small class="hint-text" id="hint-name">सामान का साफ़ नाम लिखें (उदा: टाटा नमक 1kg)</small>
+          </div>
+
+          <!-- Quantity & Unit Row -->
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label for="input-product-qty" id="lbl-form-qty">मात्रा (दशमलव संभव) *</label>
+              <input 
+                type="number" 
+                id="input-product-qty" 
+                class="form-control" 
+                placeholder="उदा: 2.5 या 10" 
+                step="0.01" 
+                min="0.01" 
+                required
+              >
+            </div>
+            <div class="form-group flex-1">
+              <label for="input-product-unit" id="lbl-form-unit">इकाई *</label>
+              <select id="input-product-unit" class="form-control" required>
+                <option value="किलो">किलो (kg)</option>
+                <option value="ग्राम">ग्राम (gm)</option>
+                <option value="लीटर">लीटर (ltr)</option>
+                <option value="पैकेट">पैकेट (pkt)</option>
+                <option value="पीस">पीस (pc)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Minimum Stock Alert Level -->
+          <div class="form-group">
+            <label for="input-product-min" id="lbl-form-min">न्यूनतम स्टॉक सीमा (रीऑर्डर अलर्ट) *</label>
+            <input 
+              type="number" 
+              id="input-product-min" 
+              class="form-control" 
+              placeholder="उदा: 5 (स्टॉक इससे कम होने पर अलर्ट मिलेगा)" 
+              step="0.01" 
+              min="0" 
+              value="5" 
+              required
+            >
+          </div>
+
+          <!-- Prices (Optional) -->
+          <div class="form-row">
+            <div class="form-group flex-1">
+              <label for="input-product-buy" id="lbl-form-buy">खरीद दर ₹ (ऐच्छिक)</label>
+              <input 
+                type="number" 
+                id="input-product-buy" 
+                class="form-control" 
+                placeholder="उदा: 40" 
+                step="0.01" 
+                min="0"
+              >
+            </div>
+            <div class="form-group flex-1">
+              <label for="input-product-sell" id="lbl-form-sell">बिक्री दर ₹ (ऐच्छिक)</label>
+              <input 
+                type="number" 
+                id="input-product-sell" 
+                class="form-control" 
+                placeholder="उदा: 48" 
+                step="0.01" 
+                min="0"
+              >
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="btn-submit-product" class="btn-primary btn-block btn-lg">
+            💾 <span id="txt-btn-save-stock">माल सुरक्षित करें (Save)</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 3. QUICK SALE VIEW -->
+    <section id="view-quick-sale" class="view">
+      <div class="card-form">
+        <div class="form-header">
+          <button class="btn-back btn-nav-home" aria-label="वापस जाएं">←</button>
+          <h2 id="txt-form-sale-heading">त्वरित बिक्री (Quick Sale)</h2>
+        </div>
+
+        <div id="sale-empty-guard" class="empty-state hidden">
+          <div class="empty-icon">📦</div>
+          <h3 id="txt-no-product-sale">स्टॉक में कोई सामान नहीं है!</h3>
+          <p id="txt-no-product-sale-sub">पहले 'माल जोड़ें' बटन से सामान दर्ज करें।</p>
+          <button class="btn-primary btn-nav-add" type="button">➕ नया माल जोड़ें</button>
+        </div>
+
+        <form id="form-quick-sale" autocomplete="off">
+          <!-- Product Selector -->
+          <div class="form-group">
+            <label for="select-sale-product" id="lbl-sale-select">सामान चुनें *</label>
+            <select id="select-sale-product" class="form-control form-control-lg" required>
+              <option value="">-- सामान चुनें (Select Product) --</option>
+            </select>
+          </div>
+
+          <!-- Selected Product Availability Card -->
+          <div id="sale-item-card" class="item-summary-card hidden">
+            <div class="item-summary-row">
+              <span class="summary-label" id="lbl-avail-stock">मौजूदा उपलब्ध स्टॉक:</span>
+              <span class="summary-val highlight" id="sale-avail-qty">0</span>
+            </div>
+            <div class="item-summary-row" id="row-sale-rate">
+              <span class="summary-label" id="lbl-rate">प्रति इकाई दर:</span>
+              <span class="summary-val" id="sale-item-rate">-</span>
+            </div>
+          </div>
+
+          <!-- Quantity to Sell -->
+          <div class="form-group">
+            <label for="input-sale-qty" id="lbl-sale-qty">बेची जाने वाली मात्रा *</label>
+            <div class="input-with-unit">
+              <input 
+                type="number" 
+                id="input-sale-qty" 
+                class="form-control form-control-lg" 
+                placeholder="उदा: 1 या 2.5" 
+                step="0.01" 
+                min="0.01" 
+                required
+              >
+              <span id="sale-unit-badge" class="unit-badge">-</span>
+            </div>
+          </div>
+
+          <!-- Quick Increment Buttons for Thumb Accessibility -->
+          <div class="quick-qty-pills">
+            <button type="button" class="btn-pill" data-qty="0.25">+0.25</button>
+            <button type="button" class="btn-pill" data-qty="0.5">+0.5</button>
+            <button type="button" class="btn-pill" data-qty="1">+1</button>
+            <button type="button" class="btn-pill" data-qty="2">+2</button>
+            <button type="button" class="btn-pill" data-qty="5">+5</button>
+          </div>
+
+          <!-- Estimated Total -->
+          <div id="sale-total-box" class="sale-total-box hidden">
+            <span id="lbl-sale-total">कुल अनुमानित मूल्य:</span>
+            <span class="sale-total-amount" id="sale-total-price">₹ 0.00</span>
+          </div>
+
+          <!-- One-Tap Confirm Sale Button -->
+          <button type="submit" id="btn-submit-sale" class="btn-success btn-block btn-lg">
+            ⚡ <span id="txt-btn-confirm-sale">बिक्री दर्ज करें (One-Tap Sale)</span>
+          </button>
+        </form>
+
+        <!-- Recent Sales Feed -->
+        <div class="recent-sales-section">
+          <h3 class="section-title" id="txt-recent-sales">हाल की बिक्री (Recent Sales)</h3>
+          <div id="recent-sales-list" class="recent-sales-list">
+            <div class="empty-list-hint" id="txt-no-sales-yet">अभी तक कोई बिक्री दर्ज नहीं हुई।</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-ai" class="view">
+      <div class="card-form ai-panel">
+        <div class="form-header">
+          <button class="btn-back btn-nav-home" aria-label="वापस जाएं">←</button>
+          <h2 id="txt-ai-heading">दुकान AI सहायक</h2>
+        </div>
+
+        <section class="ai-connection" aria-labelledby="txt-ai-connection-heading">
+          <h3 id="txt-ai-connection-heading">AI सर्वर</h3>
+          <p id="txt-ai-privacy-note">आपके स्टॉक का डेटा DeepSeek को तभी भेजा जाएगा जब आप AI से पूछेंगे। API key इस ऐप में नहीं रखी जाती।</p>
+          <label for="input-ai-endpoint" id="lbl-ai-endpoint">AI सर्वर URL</label>
+          <div class="ai-endpoint-row">
+            <input id="input-ai-endpoint" class="form-control" type="url" inputmode="url" placeholder="https://your-server.example.com" autocomplete="url">
+            <button id="btn-save-ai-endpoint" class="btn-secondary" type="button">सेव</button>
+          </div>
+          <label for="input-ai-access-token" id="lbl-ai-access-token">सर्वर एक्सेस टोकन</label>
+          <input id="input-ai-access-token" class="form-control" type="password" autocomplete="off" placeholder="सर्वर पर सेट किया हुआ token">
+          <small id="txt-ai-endpoint-hint" class="hint-text">लोकल टेस्ट: http://127.0.0.1:8787 | फोन पर HTTPS होस्टेड सर्वर URL डालें</small>
+          <p id="ai-server-status" class="ai-server-status" role="status">सर्वर URL सेव करें</p>
+        </section>
+
+        <div class="ai-quick-actions" aria-label="AI कार्य">
+          <button class="btn-secondary ai-task-button" type="button" data-ai-task="reorder" id="btn-ai-reorder">📦 रीऑर्डर सलाह</button>
+          <button class="btn-secondary ai-task-button" type="button" data-ai-task="forecast" id="btn-ai-forecast">📈 मांग का अनुमान</button>
+        </div>
+
+        <form id="form-ai-question" class="ai-question-form">
+          <label for="input-ai-question" id="lbl-ai-question">दुकान के बारे में पूछें</label>
+          <div class="ai-question-row">
+            <textarea id="input-ai-question" class="form-control ai-question-input" rows="3" maxlength="1000" placeholder="उदाहरण: अगले हफ्ते किन चीजों का स्टॉक बढ़ाऊं?"></textarea>
+            <button id="btn-ai-mic" class="ai-mic-button" type="button" aria-label="बोलकर सवाल पूछें" aria-pressed="false" title="बोलकर सवाल पूछें">🎙️</button>
+          </div>
+          <p id="ai-mic-status" class="ai-server-status" role="status" aria-live="polite"></p>
+          <button id="btn-ai-send" class="btn-primary btn-block btn-lg" type="submit">✦ AI से पूछें</button>
+        </form>
+
+        <div id="ai-answer" class="ai-answer hidden" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- 4. STOCK & INVENTORY VIEW -->
+    <section id="view-stock" class="view">
+      <div class="stock-header-card">
+        <div class="form-header">
+          <button class="btn-back btn-nav-home" aria-label="वापस जाएं">←</button>
+          <h2 id="txt-stock-heading">दुकान का स्टॉक (Stock)</h2>
+        </div>
+
+        <!-- Stock View Sub-Tabs -->
+        <div class="subtabs-bar">
+          <button class="subtab-btn active" data-tab="all" id="tab-all-stock">
+            📦 <span id="txt-tab-all">सभी सामान</span> (<span id="count-tab-all">0</span>)
+          </button>
+          <button class="subtab-btn" data-tab="reorder" id="tab-reorder-stock">
+            ⚠️ <span id="txt-tab-reorder">रीऑर्डर सूची</span> (<span id="count-tab-reorder">0</span>)
+          </button>
+          <button class="subtab-btn" data-tab="dead" id="tab-dead-stock">
+            ⏳ <span id="txt-tab-dead">रुका हुआ माल</span> (<span id="count-tab-dead">0</span>)
+          </button>
+        </div>
+      </div>
+
+      <!-- Action Toolbar for Reorder List (Share / Copy) -->
+      <div id="reorder-action-bar" class="toolbar-box hidden">
+        <div class="toolbar-info">
+          <span class="toolbar-title" id="txt-reorder-bar-title">📋 सप्लायर को भेजने के लिए:</span>
+        </div>
+        <div class="toolbar-buttons">
+          <button id="btn-share-reorder" class="btn-accent btn-sm" type="button">
+            📲 <span id="txt-btn-share">WhatsApp / शेयर करें</span>
+          </button>
+          <button id="btn-copy-reorder" class="btn-secondary btn-sm" type="button">
+            📋 <span id="txt-btn-copy">कॉपी करें</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search & Filter Bar -->
+      <div class="search-box">
+        <input 
+          type="search" 
+          id="input-stock-search" 
+          class="form-control" 
+          placeholder="🔍 सामान खोजें (उदा. आटा, चीनी, तेल...)"
+        >
+      </div>
+
+      <!-- Inventory Lists Container -->
+      <div id="stock-list-container" class="stock-items-list">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Sticky Bottom Navigation Bar (Thumb Friendly) -->
+  <nav class="bottom-nav">
+    <button class="nav-tab active" data-view="view-home" id="nav-btn-home">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-label" id="lbl-nav-home">होम</span>
+    </button>
+    <button class="nav-tab" data-view="view-add-stock" id="nav-btn-add">
+      <span class="nav-icon">➕</span>
+      <span class="nav-label" id="lbl-nav-add">माल जोड़ें</span>
+    </button>
+    <button class="nav-tab" data-view="view-quick-sale" id="nav-btn-sale">
+      <span class="nav-icon">⚡</span>
+      <span class="nav-label" id="lbl-nav-sale">बिक्री करें</span>
+    </button>
+    <button class="nav-tab" data-view="view-stock" id="nav-btn-stock">
+      <span class="nav-icon">📋</span>
+      <span class="nav-label" id="lbl-nav-stock">स्टॉक देखें</span>
+    </button>
+  </nav>
+
+  <!-- Global Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Quick Restock Modal -->
+  <div id="restock-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-restock-title">स्टॉक बढ़ाएं (Restock)</h3>
+        <button id="btn-close-modal" class="btn-close" aria-label="बंद करें">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="modal-product-name" class="modal-item-name">बासमती चावल</p>
+        <p id="modal-current-stock" class="modal-subtext">मौजूदा स्टॉक: 2 किलो</p>
+        <div class="form-group">
+          <label for="input-restock-add-qty" id="lbl-modal-add-qty">कितना नया माल आया? *</label>
+          <input 
+            type="number" 
+            id="input-restock-add-qty" 
+            class="form-control form-control-lg" 
+            placeholder="उदा: 10" 
+            step="0.01" 
+            min="0.01" 
+            required
+          >
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-cancel-modal" class="btn-secondary" type="button">रद्द करें</button>
+        <button id="btn-confirm-restock" class="btn-primary" type="button">स्टॉक जोड़ें</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./voice.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
